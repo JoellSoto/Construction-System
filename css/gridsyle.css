@@ -22,7 +22,7 @@ btn3 {
     margin: auto;
 }
 
-#betao{
+#betao {
     display: grid;
     width: 100%;
     height: 150%;
@@ -31,12 +31,45 @@ btn3 {
     grid-row: auto;
     grid-row-gap: 1%;
 }
-#tit1{
-    margin-top:-20%;
+
+#tit1 {
+    margin-top: -40%;
     display: grid;
     width: 100%;
-    height:100%;
+    height: 100%;
     grid-template-columns: 33% auto auto;
     grid-row: 1;
     grid-column-gap: 5%;
+}
+
+@media (max-width: 989px) {
+    #tit1 {
+        margin-top: -20%;
+    }
+    #betao {
+        column-gap: 15%;
+        margin-left: -25%;
+    }
+}
+
+@media (max-width:330px) {
+    #tit1 {
+        visibility: hidden;
+    }
+    #betao {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-columns: 100%;
+        grid-row: auto;
+        column-gap: 5%;
+    }
+    #vlGrid {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-columns: 100%;
+        grid-row: auto;
+        grid-row-gap: 1%;
+    }
 }

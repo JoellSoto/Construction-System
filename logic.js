@@ -103,12 +103,11 @@ function calcularArea() {
 
         alert("Introduza um Numero");
     }
-    //ver esse erro de tipo de dados
-    if (typeof(nrA).NaN == false)
 
-        document.getElementById("saida").innerHTML = nrA + " Blocos";
-    else
+    if (isNaN(nrA) == true)
         document.getElementById("saida").innerHTML = " Introduza um Numero " + nrA;
+    else
+        document.getElementById("saida").innerHTML = nrA + " Blocos";
 
 }
 
