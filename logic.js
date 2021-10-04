@@ -38,7 +38,7 @@ function inicializacoes() {
 
 function validacoes(ac) {
 
-    if (ac.value == "" ||typeof ac.value== NaN )
+    if (ac.value == "" || typeof ac.value == NaN)
         alert("inroduza um Numero");
 
 }
@@ -70,12 +70,13 @@ function eventos() {
 
     btn3.addEventListener("click", function() {
         cont = nrSapatas.value;
-        if (vl < cont){
+        if (vl < cont) {
             nrdSapatas(vl, selT, comS.value, larS.value, altS.value);
-            zerar();
-        }
-            
-        else
+            // zerar();
+            comS.value.innerHTML = "";
+            larS.value.innerHTML = "";
+            altS.value.innerHTML = "";
+        } else
             calculosBet("saida3");
 
     });
@@ -83,17 +84,31 @@ function eventos() {
     btn4.addEventListener("click", function() {
         cont1 = nrPilar.value;
 
-        if (vl < cont1){
+        if (vl < cont1) {
             nrdSapatas(vl, selT1, cP.value, lP.value, aP.value);
-           
-            
-        }
-           
-        else
+
+
+        } else
             calculosBet("saida4");
 
     });
 
+
+}
+
+function calcularArea() {
+    try {
+        nrA = Math.ceil(varea.value * blocoMetro);
+    } catch (NumberFormatException) {
+
+        alert("Introduza um Numero");
+    }
+    //ver esse erro de tipo de dados
+    if (typeof(nrA).NaN == false)
+
+        document.getElementById("saida").innerHTML = nrA + " Blocos";
+    else
+        document.getElementById("saida").innerHTML = " Introduza um Numero " + nrA;
 
 }
 
@@ -106,7 +121,7 @@ function calculosBet(nv) {
         areia = areia + genericoSap[i].precoAreia;
         pedra = pedra + genericoSap[i].precoPedra;
     }
-   
+
     document.getElementById(nv).innerHTML = "o total de pedra e de <br> " + pedra + " Valor da areia e de <br> " + areia + "\n Valor de cimento e de " + cimento;
     vl = 0;
 
@@ -118,34 +133,12 @@ function calculosBet(nv) {
 function nrdSapatas(n, va, x, y, z) {
 
     genericoSap[vl] = calculosBetao(va, x, y, z);
-    zerar();
+    // zerar();
     vl++;
-   
-}
-
-function zerar(){
-    
-    comS.innerHTML = " ";
-    larS.innerHTML = " ";
-    altS.innerHTML = " ";
-    }
-
-
-function calcularArea() {
-    try {
-        nrA = Math.ceil(varea.value * blocoMetro);
-    } catch (NumberFormatException) {
-
-        alert("Introduza um Numero");
-    }
-
-    if (typeof(nrA.value).isNumber == true)
-
-        document.getElementById("saida").innerHTML = nrA + " Blocos";
-    else
-        document.getElementById("saida").innerHTML = " Introduza um Numero";
 
 }
+
+
 
 function calculoArgamassa() {
 
